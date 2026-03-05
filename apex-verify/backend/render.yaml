@@ -1,0 +1,9 @@
+# Render Blueprint: DeepClaim AI backend (use with Root Directory = apex-verify/backend)
+# Dashboard: New + → Blueprint → connect repo → set Root Directory to apex-verify/backend
+services:
+  - type: web
+    name: apex-verify-backend
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    # plan: starter  # uncomment for paid; free tier may OOM with full ML stack
